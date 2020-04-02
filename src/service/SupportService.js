@@ -9,7 +9,7 @@ function GetSupportList() {
   );
   result.push(
     SetBubble(
-      "https://upload.wikimedia.org/wikipedia/commons/b/b5/Shopee-logo.jpg",
+      "https://deo.shopeemobile.com/shopee/shopee-mobilemall-live-sg/assets/ca5d12864c12916c05640b36e47ac5c9.png",
       "Shopee",
       "https://cl.accesstrade.in.th/001jan000h3h"
     )
@@ -23,9 +23,9 @@ function GetSupportList() {
   );
   result.push(
     SetBubble(
-      "https://d1j36w0bax18n0.cloudfront.net/media/wysiwyg/Partnership/Bank/rbs-squre_copy_2x.png",
-      "Robinson",
-      "https://cl.accesstrade.in.th/001lt5000h3h"
+      "https://static1-velaeasy.readyplanet.com/www.suapatrang.com/images/content/original-1546581170365.png",
+      "Banana ShopingOnline",
+      "https://cl.accesstrade.in.th/001pae000h3h"
     )
   );
   result.push(
