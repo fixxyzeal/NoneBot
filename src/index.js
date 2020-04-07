@@ -26,12 +26,12 @@ async function HandleUnfollow(context) {
 
 async function HandleText(context) {
   var text = context.event.text;
-  console.log(context.session);
+
   await apiService.Login();
   //Save action
   await apiService.SaveAction(
     context.session.user.id,
-    context.session.user.name,
+    "LineUser",
     context.session.platform,
     text
   );
