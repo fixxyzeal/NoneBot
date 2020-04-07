@@ -26,6 +26,7 @@ async function HandleUnfollow(context) {
 
 async function HandleText(context) {
   var text = context.event.text;
+  console(context.session);
   await apiService.Login();
   //Save action
   await apiService.SaveAction(
