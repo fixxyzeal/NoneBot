@@ -1,5 +1,8 @@
 const chat_config = require("./chat.config.js");
 const support = require("./service/SupportService");
+const api = require("./Api");
+
+var apiService = new api();
 
 module.exports = async function App(context) {
   if (context.event.isFollow) {
@@ -23,6 +26,14 @@ async function HandleUnfollow(context) {
 
 async function HandleText(context) {
   var text = context.event.text;
+  await apiService.Login();
+  //Save action
+  await apiService.SaveAction(
+    context.session.user.id,
+    context.session.user.name,
+    context.session.platform,
+    text
+  );
 
   if (
     text.toLowerCase().includes("support") ||
@@ -30,9 +41,12 @@ async function HandleText(context) {
   ) {
     await context.sendFlex("ช่วยสนับหนุน น้อน บอท", {
       type: "carousel",
-      contents: support.GetSupportList()
+      contents: support.GetSupportList(),
     });
   } else {
-    await context.sendText(text);
+    await context.sendFlex("แนะนำ iphone11", {
+      type: "carousel",
+      contents: support.GetIphone(),
+    });
   }
 }

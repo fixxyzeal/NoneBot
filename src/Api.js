@@ -1,13 +1,25 @@
 const axios = require("axios");
 
 module.exports = class api {
-  constructor() {
+  constructor() {}
+
+  async Login() {
+    let data = { email: "fixxyzeally2@gmail.com", password: "zeallyfixxy" };
+
+    var result = await axios.post(
+      process.env.BASE_URL + "api/auth/login",
+      data
+    );
     axios.defaults.headers.common["Authorization"] =
-      "Bearer " + process.env.APITOKEN;
+      "Bearer " + result.data.token;
   }
 
-  async getProduct() {
-    var result = await axios.get(process.env.BASE_URL + "products");
-    return result.data;
+  async SaveAction(userid, username, platform, message) {
+    return await axios.post(process.env.BASE_URL + "api/action", {
+      userId: userid,
+      userDisplayName: username,
+      message: message,
+      platform: platform,
+    });
   }
 };

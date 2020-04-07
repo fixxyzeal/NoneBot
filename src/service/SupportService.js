@@ -38,6 +38,18 @@ function GetSupportList() {
   return result;
 }
 
+function GetIphone() {
+  let result = [];
+  result.push(
+    SetBubble(
+      "https://s.isanook.com/hi/0/rp/r/w728/ya0xa0m1w0/aHR0cHM6Ly9zLmlzYW5vb2suY29tL2hpLzAvdWQvMjk2LzE0ODQ1MDMvYXBwbGUtaXBob25lLTExLXNhbm9vay5qcGc=.jpg",
+      "แนะนำ Iphone11 ราคาถูกมาก",
+      "https://bit.ly/2UR1h0c"
+    )
+  );
+  return result;
+}
+
 function SetBubble(imageurl, text, link) {
   return {
     type: "bubble",
@@ -46,7 +58,7 @@ function SetBubble(imageurl, text, link) {
       size: "full",
       aspectRatio: "20:13",
       aspectMode: "cover",
-      url: imageurl
+      url: imageurl,
     },
     body: {
       type: "box",
@@ -58,9 +70,9 @@ function SetBubble(imageurl, text, link) {
           text: text,
           wrap: true,
           weight: "bold",
-          size: "xl"
-        }
-      ]
+          size: "xl",
+        },
+      ],
     },
     footer: {
       type: "box",
@@ -73,12 +85,12 @@ function SetBubble(imageurl, text, link) {
           action: {
             type: "uri",
             label: "ซื้อเลย",
-            uri: link
-          }
-        }
-      ]
-    }
+            uri: link,
+          },
+        },
+      ],
+    },
   };
 }
 
-module.exports = { GetSupportList };
+module.exports = { GetSupportList, GetIphone };
