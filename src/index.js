@@ -44,7 +44,9 @@ async function HandleText(context) {
       type: "carousel",
       contents: support.GetSupportList(),
     });
-  } else if (text.toLowerCase().includes("ฟัน")) {
+  }
+  //Brushing information
+  else if (text.toLowerCase().includes("ฟัน")) {
     await apiService.SaveBrushing();
     await context.sendText(
       "รับข้อมูลการแปรงฟัน เรียบร้อย " + String.fromCodePoint(0x10009d)
