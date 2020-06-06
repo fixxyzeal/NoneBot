@@ -44,6 +44,24 @@ async function HandleText(context) {
       type: "carousel",
       contents: support.GetSupportList(),
     });
+  } else if (text.toLowerCase().includes("ฟัน")) {
+    await apiService.SaveBrushing();
+    await context.sendText("รับข้อมูลการแปรงฟัน เรียบร้อย");
+  } else if (text.toLowerCase().includes("ข้อมูล")) {
+    let data = await apiService.GetBrushing();
+    let result = data.data[0].brushingRemain;
+    let resultText = "";
+    if (result === 0) {
+      resultText =
+        "วันนี้คุณได้แปรงฟันครบแล้ว " + String.fromCodePoint(0x100080);
+    } else {
+      resultText =
+        "คุณยังค้างแปรงฟันอีก " +
+        result +
+        " ครั้ง " +
+        String.fromCodePoint(0x100082);
+    }
+    await context.sendText(resultText);
   } else {
     await context.sendFlex("แนะนำ iphone11", {
       type: "carousel",

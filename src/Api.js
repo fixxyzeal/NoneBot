@@ -22,4 +22,12 @@ module.exports = class api {
       platform: platform,
     });
   }
+  async SaveBrushing() {
+    return await axios.post(process.env.BASE_URL + "api/BrushingInformation", {
+      brushingSet: 3,
+    });
+  }
+  async GetBrushing() {
+    return await axios.get(process.env.BASE_URL + "api/BrushingInformation");
+  }
 };
