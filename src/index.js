@@ -46,7 +46,7 @@ async function HandleText(context) {
     });
   } else if (text.toLowerCase().includes("ฟัน")) {
     await apiService.SaveBrushing();
-    await context.sendText("รับข้อมูลการแปรงฟัน เรียบร้อย");
+    await context.sendText("รับข้อมูลการแปรงฟัน เรียบร้อย "  + String.fromCodePoint(0x10009D););
   } else if (text.toLowerCase().includes("ข้อมูล")) {
     let data = await apiService.GetBrushing();
     let result = data.data[0].brushingRemain;
