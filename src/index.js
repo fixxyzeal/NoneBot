@@ -53,9 +53,16 @@ async function HandleText(context) {
     );
   } else if (text.toLowerCase().includes("ข้อมูล")) {
     let data = await apiService.GetBrushing();
-    let result = data.data[0].brushingRemain;
+    let result = null;
+    if (data.data.length > 0) {
+      result = data.data[0].brushingRemain;
+    }
     let resultText = "";
-    if (result === 0) {
+    if (result === null) {
+      resultText =
+        "วันนี้คุณยังไม่ได้แปรงฟันเลยนะ โปรดดูแลสุขภาพฟัน " +
+        String.fromCodePoint(0x100082);
+    } else if (result === 0) {
       resultText =
         "วันนี้คุณได้แปรงฟันครบแล้ว " + String.fromCodePoint(0x100080);
     } else {
