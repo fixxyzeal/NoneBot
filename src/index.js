@@ -47,7 +47,7 @@ async function HandleText(context) {
   }
   //Brushing information
   else if (text.toLowerCase().includes("ฟัน")) {
-    await apiService.SaveBrushing();
+    await apiService.SaveBrushing(context.session.user.id);
     await context.sendText(
       "รับข้อมูลการแปรงฟัน เรียบร้อย " + String.fromCodePoint(0x10009d)
     );

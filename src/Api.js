@@ -22,9 +22,10 @@ module.exports = class api {
       platform: platform,
     });
   }
-  async SaveBrushing() {
+  async SaveBrushing(userid) {
     return await axios.post(process.env.BASE_URL + "api/BrushingInformation", {
       brushingSet: 3,
+      lineUserId: userid,
     });
   }
   async GetBrushing() {
