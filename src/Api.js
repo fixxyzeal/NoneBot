@@ -28,6 +28,8 @@ module.exports = class api {
     });
   }
   async GetBrushing() {
-    return await axios.get(process.env.BASE_URL + "api/BrushingInformation");
+    return await axios.get(
+      process.env.BASE_URL + "api/BrushingInformation?lastest=true"
+    );
   }
 };
