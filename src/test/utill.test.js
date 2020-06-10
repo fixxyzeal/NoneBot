@@ -14,6 +14,3 @@ test("Number with comma", () => {
   expect(utill.numberWithCommas(1000)).toBe("1,000");
 });
 
-test("Test SCG Api", () => {
-  expect(apiservice.Test()).toBeDefined();
-});

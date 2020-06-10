@@ -6,7 +6,7 @@ module.exports = class api {
 
   async Login() {
     let data = { email: process.env.USER, password: process.env.PASS };
-
+    axios.defaults.headers.common["Authorization"] = "";
     var result = await axios.post(
       process.env.BASE_URL + "api/auth/login",
       data,

@@ -29,12 +29,12 @@ async function HandleText(context) {
 
   await apiService.Login();
   //Save action
-  await apiService.SaveAction(
-    context.session.user.id,
-    "LineUser",
-    context.session.platform,
-    text
-  );
+  // await apiService.SaveAction(
+  //   context.session.user.id,
+  //   "LineUser",
+  //   context.session.platform,
+  //   text
+  // );
 
   if (
     text.toLowerCase().includes("support") ||
